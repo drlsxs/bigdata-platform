@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="renderer" content="webkit">
+  <title>ABI</title>
+  <link rel="stylesheet" type="text/css" href="css/eui.css">
+  <script>
+    var $relpath = "/EPI/";
+  </script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/require.js"></script>
+  <script src="js/eui.js"></script>
+  <script src="js/ping.js"></script>
+  <script>
+    require.config({
+      baseUrl: '/EPI/'
+    });
+    /**
+     *覆盖eui中的openWindow，默认新开窗口，都会带标签头容器，
+     *@param url 链接地址
+     *@param needContextPath Boolean  true 表示需要添加contextPath, 默认为false
+     *@param title String 新开标签页标题
+     *@param needTitleContent Boolean true 表示带容器头，默认是false，要带标签容器，需要传true
+     */
+    EUI.openWindow = function(url, needContextPath, title, needTitleContent){
+      // 第一个，a标签跳转
+      var a = document.createElement("a"),
+        body = document.body;
+      body.appendChild(a);
+      a.target = "_blank";
+      if(needTitleContent === true){
+        a.href = EUI.getContextPath() + "eweb/titlepage.do?title="+EUI.escapeURIComponent(title) +"&url="+EUI.escapeURIComponent(EUI.formatUrl(url));
+      }else {
+        a.href = (needContextPath === true ? EUI.getContextPath() : "") + url;
+      }
+      a.click();
+      body.removeChild(a);
+    }
+  </script>
+  <link href="css/esenbase.css" rel="stylesheet" type="text/css">
+  <link href="css/indexcontent.css" rel="stylesheet" type="text/css">
+  <link href="css/animation.css" rel="stylesheet" type="text/css">
+</head>
+<body icon class="eui-layout-body">
+<div id="com.esen.irpt.web.waitingdom" class="eui-panel eui-dialog-operationtips" style="line-height:50px; text-align: center; left:50%; top:50%; margin-left:-100px; margin-top:-25px;">
+  <i class="eui-icon eui-anim eui-anim-rotate eui-anim-loop eui-inline-block eui-link">&#xefa1;</i>
+  <span id="com.esen.irpt.web.waitingdom.txt" class="eui-padding-left-5">正在装入...</span>
+</div>
+<script>
+  function setJspWaitingDomMsg(msg){var _d = document.getElementById("com.esen.irpt.web.waitingdom.txt");if (_d) _d.innerHTML = msg;}
+  function hideJspWaitingDomMsg(){var _d = document.getElementById("com.esen.irpt.web.waitingdom");if (_d) _d.parentNode.removeChild(_d);if(window.detachEvent)window.detachEvent("onload",hideJspWaitingDomMsg);else if(window.removeEventListener)window.removeEventListener("load",hideJspWaitingDomMsg,false);}
+  if(window.attachEvent)window.attachEvent("onload",hideJspWaitingDomMsg);else if(window.addEventListener)window.addEventListener("load",hideJspWaitingDomMsg,false);
+</script>
+<div class="warp">
+  <!--底部方块 开始-->
+  <div class="floor">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <!--底部方块 结束-->
+
+  <!--数据源 开始-->
+  <div class="data-origin">
+    <div class="do-cont-shang">
+      <img src="images/sjy_di02.png">
+      <img src="images/sjy_di03.png">
+      <img src="images/sjy_di02.png">
+      <img src="images/sjy_di03.png">
+    </div>
+    <div class="do-cont"></div>
+    <div class="do-top">
+      <div class="xz-light"></div>
+    </div>
+    <div class="do-anim">
+      <span class="an-guang"></span>
+      <span class="an-guang-sp">
+                <img src="images/sjy_top03.png">
+                <img src="images/sjy_top03.png">
+                <img src="images/sjy_top03.png">
+            </span>
+      <span class="an-jiaz"></span>
+      <span class="an-img">
+                <img src="images/sjy_top05.png">
+                <img src="images/sjy_top05.png">
+                <img src="images/sjy_top05.png">
+                <img src="images/sjy_top05.png">
+                <img src="images/sjy_top05.png">
+                <img src="images/sjy_top05.png">
+            </span>
+    </div>
+  </div>
+  <!--数据源 结束-->
+
+  <!--指标定义 开始-->
+  <div class="index-define">
+    <div class="id-cont-shang">
+      <img src="images/dy_di02.png">
+      <img src="images/dy_di03.png">
+      <img src="images/dy_di02.png">
+      <img src="images/dy_di03.png">
+    </div>
+    <div class="id-cont"></div>
+    <div class="id-top">
+      <div class="xz-light"></div>
+    </div>
+    <div class="id-ambox ib-1">
+      <span class="ab-guang"></span>
+      <span class="ab-xg"></span>
+      <span class="ab-img"></span>
+      <span class="ab-txt"></span>
+    </div>
+    <div class="id-ambox ib-2">
+      <span class="ab-guang"></span>
+      <span class="ab-xg"></span>
+      <span class="ab-img"></span>
+      <span class="ab-txt"></span>
+    </div>
+    <div class="id-ambox ib-3">
+      <span class="ab-guang"></span>
+      <span class="ab-xg"></span>
+      <span class="ab-img"></span>
+      <span class="ab-txt"></span>
+    </div>
+    <div class="id-ambox ib-4">
+      <span class="ab-guang"></span>
+      <span class="ab-xg"></span>
+      <span class="ab-img"></span>
+      <span class="ab-txt"></span>
+    </div>
+  </div>
+  <!--指标定义 结束-->
+  <div class="gd-01">
+  </div>
+  <div class="gd-02">
+  </div>
+  <!--指标建模 开始-->
+  <div class="index-modeling">
+    <div class="im-cont-shang">
+      <img src="images/jm_di02.png">
+      <img src="images/jm_di03.png">
+      <img src="images/jm_di02.png">
+      <img src="images/jm_di03.png">
+      <img src="images/jm_di02.png">
+      <img src="images/jm_di03.png">
+    </div>
+    <div class="im-cont"></div>
+    <div class="im-top">
+      <div class="xz-light"></div>
+    </div>
+    <div class="im-anim">
+            <span class="im-gaizi">
+                <img src="images/jm_top05.png">
+                <img src="images/jm_top05.png">
+                <img src="images/jm_top05.png">
+            </span>
+      <span class="im-quan"></span>
+    </div>
+  </div>
+  <!--指标建模 结束-->
+  <div class="gd-03">
+  </div>
+  <!--指标固化 开始-->
+  <div class="index-solidify">
+    <div class="gh-dibu">
+      <div class="data">
+        <img src="images/gh_di02.png">
+        <img src="images/gh_di03.png">
+        <img src="images/gh_di02.png">
+        <img src="images/gh_di03.png">
+      </div>
+      <div class="title">
+        <!--指标固化 透明罩子-->
+      </div>
+    </div>
+    <div class="gh-top">
+      <div class="board"></div>
+      <div class="gh-top-box">
+        <div class="dg-etl">
+          <div class="etl-text">
+            <img src="images/gh_text01.png">
+          </div>
+          <img src="images/gh_etl.png">
+        </div>
+        <div class="dg-rzck">
+          <div class="rzck-text">
+            <img src="images/gh_text02.png">
+          </div>
+          <img src="images/gh_rzck.png">
+        </div>
+        <div class="dg-zlsz">
+          <div class="zlsz-text">
+            <img src="images/gh_text03.png">
+          </div>
+          <img src="images/gh_zlsz_03.png">
+          <img src="images/gh_zlsz_02.png">
+          <img src="images/gh_zlsz_01.png">
+          <img src="images/gh_zlsz_01.png">
+        </div>
+        <div class="dg-zqsz">
+          <div class="zqsz-text">
+            <img src="images/gh_text04.png">
+          </div>
+          <img src="images/gh_zqsz.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--指标固化 结束-->
+  <div class="gd-04">
+  </div>
+  <!--指标应用 开始-->
+  <div class="index-apply">
+    <div class="yy-dibu">
+      <div class="data">
+        <img src="images/yy_di02.png">
+        <img src="images/yy_di03.png">
+      </div>
+      <div class="title">
+        <!--指标应用 透明罩子-->
+      </div>
+    </div>
+    <div class="yy-top">
+      <div class="board"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="147.5px" height="108.5px">
+        <defs>
+          <filter filterUnits="userSpaceOnUse" id="Filter_0" x="-0.5px" y="-0.5px" width="148px" height="109px">
+            <feoffset in="SourceAlpha" dx="-0.017" dy="1"/>
+            <fegaussianblur result="blurOut" stdDeviation="1.414"/>
+            <feflood flood-color="rgb(0, 84, 178)" result="floodOut"/>
+            <fecomposite operator="atop" in="floodOut" in2="blurOut"/>
+            <fecomponenttransfer><fefunca type="linear" slope="1"/></fecomponenttransfer>
+            <femerge>
+              <femergenode/>
+              <femergenode in="SourceGraphic"/>
+            </femerge>
+          </filter>
+        </defs>
+        <g filter="url(#Filter_0)">
+          <path fill-rule="evenodd" stroke="rgb(168, 226, 252)" stroke-width="1px" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.4" fill="none" d="M78.661,1.359 L139.119,37.402 C140.639,38.308 140.664,39.813 139.175,40.769 L123.036,51.132 L123.036,51.132 L142.241,65.995 C143.640,67.078 143.521,68.648 141.974,69.508 L80.039,103.935 L80.039,103.935 L12.191,63.086 L12.191,63.086 L20.895,57.492 C22.383,56.535 22.373,55.006 20.870,54.070 L2.900,42.876 L2.900,42.876 L14.938,35.579 L14.938,35.579 L78.661,1.359 L78.661,1.359 Z"/>
+        </g>
+      </svg>
+      <div class="yy-top-box">
+        <img src="images/yy_top08.png">
+        <img src="images/yy_top08.png">
+        <img src="images/yy_top08.png">
+        <div class="yy-mjkb">
+          <div class="mjkb-text">
+            <img src="images/yy_text01.png">
+          </div>
+          <img src="images/yy_top03.png">
+          <img src="images/yy_top05.png">
+        </div>
+        <div class="yy-kbj">
+          <div class="kbj-text">
+            <img src="images/yy_text02.png">
+          </div>
+          <img src="images/yy_top02.png">
+          <img class="kan-img1" src="images/yy_top03.png">
+          <img class="kan-img2" src="images/yy_top03.png">
+          <img class="kan-img3" src="images/yy_top04.png">
+        </div>
+        <div class="yy-jxbg">
+          <div class="jxbg-text">
+            <img src="images/yy_text03.png">
+          </div>
+          <img class="book-img1" src="images/yy_top06.png">
+          <img class="book-img2" src="images/yy_top06.png">
+          <img class="book-img3" src="images/yy_top06.png">
+          <img src="images/yy_top07.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--指标应用 结束-->
+  <div class="light-flow">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+    <img src="images/light.png">
+  </div>
+</div>
+</body>
+<script src="js/iconfont.js"></script>
+<script>
+  $(".warp").click(function(evt){
+    var target = evt.target,
+      url = target.getAttribute("linkurl");
+    if(!url)return;
+    var func = EUI.getPropertyFromParent("showMainItem", window);
+    EUI.isFunction(func) && func(url);
+  });
+</script>
+</html>

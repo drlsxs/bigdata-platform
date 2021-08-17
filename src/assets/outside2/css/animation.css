@@ -1,0 +1,1085 @@
+@charset "utf-8";
+
+/*************** 底部方块 单独动画 ***************/
+.floor > span:nth-child(1){
+    animation: an-guang-k 1s 0s infinite both;
+}
+.floor > span:nth-child(2){
+    animation: an-guang-k 1s 0.3s infinite both;
+}
+.floor > span:nth-child(3){
+    animation: an-guang-k 1s 0.6s infinite both;
+}
+.floor > span:nth-child(4){
+    animation: an-guang-k 1s 0.9s infinite both;
+}
+.floor > span:nth-child(5){
+    animation: an-guang-k 1s 1.2s infinite both;
+}
+.floor > span:nth-child(6){
+    animation: an-guang-k 1s 1.5s infinite both;
+}
+.floor > span:nth-child(7){
+    animation: an-guang-k 1s 0.2s infinite both;
+}
+.floor > span:nth-child(8){
+    animation: an-guang-k 1s 0.4s infinite both;
+}
+.floor > span:nth-child(9){
+    animation: an-guang-k 1s 0.6s infinite both;
+}
+.floor > span:nth-child(10){
+    animation: an-guang-k 1s 0.8s infinite both;
+}
+.floor > span:nth-child(11){
+    animation: an-guang-k 1s 1s infinite both;
+}
+.floor > span:nth-child(12){
+    animation: an-guang-k 1s 1.2s infinite both;
+}
+/*************** 底部方块 单独动画结束 ***************/
+
+/*************** 数据源 单独动画 ***************/
+.do-anim .an-guang{
+    animation: an-guang-k 2s 0s infinite both;
+}
+@keyframes an-guang-k{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.do-anim .an-jiaz{
+    animation: turn2d 1s infinite alternate;
+    transform-origin: center bottom;
+}
+@keyframes turn2d{
+    0%{
+        transform:rotateZ(10deg);
+    }
+    100%{
+        transform:rotateZ(-10deg);
+    }
+}
+/*光圈*/
+.do-anim .an-guang-sp img{
+    opacity: 0;
+}
+.do-anim .an-guang-sp img:nth-child(1){
+    animation: fadexk 1s 0s infinite alternate;
+}
+.do-anim .an-guang-sp img:nth-child(2){
+    animation: fadexk 1s 0.4s infinite alternate;
+}
+.do-anim .an-guang-sp img:nth-child(3){
+    animation: fadexk 1s 0.8s infinite alternate;
+}
+
+@keyframes fadexk{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/*条条上跑光*/
+.an-img > img{
+    opacity: 0;
+}
+.an-img > img:nth-child(1){
+    animation: fadeup 1s 0s infinite;
+}
+.an-img > img:nth-child(2){
+    animation: fadeup 1s 0.8s infinite;
+}
+.an-img > img:nth-child(3){
+    animation: fadeup 1s 0.4s infinite;
+}
+.an-img > img:nth-child(4){
+    animation: fadeup 1s 0.2s infinite;
+}
+.an-img > img:nth-child(5){
+    animation: fadeup 1s 1.8s infinite;
+}
+.an-img > img:nth-child(6){
+    animation: fadeup 1s 1.6s infinite;
+}
+@keyframes fadeup{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    40%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+/*************** 数据源 单独动画结束 ***************/
+
+/*************** 指标定义 单独动画 ***************/
+.ib-1 .ab-guang{
+    animation: an-guang-k 2s 0s infinite both;
+}
+.ib-1 .ab-xg{
+    animation: an-guang-k 2s 0.5s infinite both;
+}
+.ib-1 .ab-img{
+    animation: ab-updown 2s 0.2s infinite ease-in both;
+}
+.ib-2 .ab-guang{
+    animation: an-guang-k 2s 0.5s infinite both;
+}
+.ib-2 .ab-xg{
+    animation: an-guang-k 2s 1s infinite both;
+}
+.ib-2 .ab-img{
+    animation: ab-updown 2s 0.7s infinite ease-in both;
+}
+.ib-3 .ab-guang{
+    animation: an-guang-k 2s 1s infinite both;
+}
+.ib-3 .ab-xg{
+    animation: an-guang-k 2s 1.5s infinite both;
+}
+.ib-3 .ab-img{
+    animation: ab-updown 2s 1.2s infinite ease-in both;
+}
+.ib-4 .ab-guang{
+    animation: an-guang-k 2s 1.5s infinite both;
+}
+.ib-4 .ab-xg{
+    animation: an-guang-k 2s 2s infinite both;
+}
+.ib-4 .ab-img{
+    animation: ab-updown 2s 1.7s infinite ease-in both;
+}
+@keyframes ab-updown{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+/*************** 指标定义 单独动画结束 ***************/
+
+/*************** 指标建模 单独动画 ***************/
+.im-anim:before{
+    animation: fadexk 1s 0s infinite alternate;
+}
+.im-anim .im-gaizi > img:nth-child(1){
+    animation: fadexk 1s 0.3s infinite alternate;
+}
+.im-anim .im-gaizi > img:nth-child(2){
+    animation: fadexk 1s 0.6s infinite alternate;
+}
+.im-anim .im-gaizi > img:nth-child(3){
+    animation: fadexk 1s 0.9s infinite alternate;
+}
+.im-anim .im-quan{
+    animation: fadexk 1s 1.2s infinite alternate;
+}
+/*************** 指标建模 单独动画结束 ***************/
+
+/*************** 指标固化 单独动画 ***************/
+.dg-etl img:nth-child(2){
+    animation: fadexk 1s 0s infinite alternate;
+}
+.dg-etl img:nth-child(2){
+    animation: fadexk 1s 0s infinite alternate;
+}
+.dg-rzck img:nth-child(2){
+    animation: scaleBig 0.8s 0s infinite alternate;
+    transform-origin: center center;
+}
+@keyframes scaleBig {
+    0%{
+        transform: scale(0.6);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.dg-zlsz img:nth-child(2){
+    animation: fadexk 1s 0s infinite alternate;
+}
+.dg-zlsz img:nth-child(3){
+    animation: fadexk 1s 0.4s infinite alternate;
+}
+.dg-zlsz img:nth-child(4){
+    animation: fadexk 1s 1.2s infinite alternate;
+}
+.dg-zlsz img:nth-child(5){
+    animation: fadexk 1s 0.8s infinite alternate;
+}
+.dg-zqsz img:nth-child(2){
+    animation: rotate360 1s 0s infinite;
+}
+@keyframes rotate360 {
+    0%{
+        transform: rotateX(-54deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(-54deg) rotateZ(360deg);
+    }
+}
+/*************** 指标固化 单独动画结束 ***************/
+
+/*************** 指标应用 单独动画 ***************/
+/*书本上走动画*/
+.book-img1{
+    animation: ab-updown-1 2s 0s infinite ease-in both;
+}
+.book-img2{
+    animation: ab-updown-2 2s 0s infinite ease-in both;
+}
+.book-img3{
+    animation: ab-updown-3 2s 0s infinite ease-in both;
+}
+@keyframes ab-updown-1{
+    0%{
+        transform: translateY(0px);
+    }
+    20%{
+        transform: translateY(-10px);
+    }
+    40%,100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes ab-updown-2{
+    0%,30%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+    70%,100%{
+        transform: translateY(0px);
+    }
+}
+@keyframes ab-updown-3{
+    0%,60%{
+        transform: translateY(0px);
+    }
+    80%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+/*书本上走动画*/
+.kan-img1{
+    animation: kan-op-1 2s 0s infinite ease-in both;
+}
+.kan-img2{
+    animation: kan-op-2 2s 0s infinite ease-in both;
+}
+.kan-img3{
+    animation: kan-op-3 2s 0s infinite ease-in both;
+}
+@keyframes kan-op-1{
+    0%{
+        opacity: 0;
+    }
+    20%,90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes kan-op-2{
+    0%,15%{
+        opacity: 0;
+    }
+    35%,90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes kan-op-3{
+    0%,30%{
+        opacity: 0;
+    }
+    50%,90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.yy-mjkb > img:nth-child(3){
+    animation: ab-updown 2s 0s infinite ease-in both;
+}
+/*************** 指标应用 单独动画结束 ***************/
+
+
+/***************** 管道动画 *****************/
+.light-flow img:nth-child(1){
+    animation: lightFlow1 20s linear infinite;
+}
+.light-flow img:nth-child(2){
+    animation: lightFlow1 20s linear 0.5s infinite;
+}
+.light-flow img:nth-child(3){
+    animation: lightFlow1 20s linear 1s infinite;
+}
+.light-flow img:nth-child(4){
+    animation: lightFlow1 20s linear 1.5s infinite;
+}
+.light-flow img:nth-child(5){
+    animation: lightFlow2 20s linear infinite;
+}
+.light-flow img:nth-child(6){
+    animation: lightFlow2 20s linear 0.5s infinite;
+}
+.light-flow img:nth-child(7){
+    animation: lightFlow2 20s linear 1s infinite;
+}
+.light-flow img:nth-child(8){
+    animation: lightFlow2 20s linear 1.5s infinite;
+}
+.light-flow img:nth-child(9){
+    animation: lightFlow3 20s linear infinite;
+}
+.light-flow img:nth-child(10){
+    animation: lightFlow3 20s linear 0.5s infinite;
+}
+.light-flow img:nth-child(11){
+    animation: lightFlow3 20s linear 1s infinite;
+}
+.light-flow img:nth-child(12){
+    animation: lightFlow3 20s linear 1.5s infinite;
+}
+.light-flow img:nth-child(13){
+    animation: lightFlow4 20s linear infinite;
+}
+.light-flow img:nth-child(14){
+    animation: lightFlow4 20s linear 0.5s infinite;
+}
+.light-flow img:nth-child(15){
+    animation: lightFlow4 20s linear 1s infinite;
+}
+.light-flow img:nth-child(16){
+    animation: lightFlow4 20s linear 1.5s infinite;
+}
+      
+@keyframes lightFlow1 {
+    0%,10% {
+        opacity: 0;
+        transform: translateX(0px) translateY(0px) rotateZ(-30deg);
+    }
+    11%{
+        opacity: 1;
+    }
+    14.9% {
+        opacity: 1;
+        transform: translateX(87px) translateY(-50px) rotateZ(-30deg);
+    }
+    15%{
+        transform: translateX(87px) translateY(-52px) rotateZ(90deg);
+    }
+    17.8% {
+        opacity: 1;
+    }
+    18.8%,100% {
+        opacity: 0;
+        transform: translateX(87px) translateY(-130px) rotateZ(90deg);
+    }
+}
+@keyframes lightFlow2 {
+    0%,28.8% {
+        opacity: 0;
+        transform: translateX(0px) translateY(0px) rotateZ(-30deg);
+    }
+    29.8%{
+        opacity: 1;
+    }
+    37.8% {
+        opacity: 1;
+        transform: translateX(145px) translateY(-88px) rotateZ(-30deg);
+    }
+    37.9%{
+        transform: translateX(147px) translateY(-86px) rotateZ(-150deg);
+    }
+    44.2% {
+        opacity: 1;
+    }
+    45.2%,100% {
+        opacity: 0;
+        transform: translateX(260px) translateY(-20px) rotateZ(-150deg);
+    }
+}
+@keyframes lightFlow3 {
+    0%,55.2% {
+        opacity: 0;
+        transform: translateX(0px) translateY(0px) rotateZ(90deg);
+    }
+    56.2%{
+        opacity: 1;
+    }
+    58.2% {
+        opacity: 1;
+        transform: translateX(0px) translateY(45px) rotateZ(90deg);
+    }
+    58.3%{
+        transform: translateX(3px) translateY(47px) rotateZ(-30deg);
+    }
+    61% {
+        opacity: 1;
+    }
+    62%,100% {
+        opacity: 0;
+        transform: translateX(-60px) translateY(83px) rotateZ(-30deg);
+    }
+}
+@keyframes lightFlow4 {
+    0%,72% {
+        opacity: 0;
+        transform: translateX(0px) translateY(0px) rotateZ(90deg);
+    }
+    73%{
+        opacity: 1;
+    }
+    75.5% {
+        opacity: 1;
+        transform: translateX(0px) translateY(52px) rotateZ(90deg);
+    }
+    75.6%{
+        transform: translateX(3px) translateY(54px) rotateZ(-30deg);
+    }
+    79% {
+        opacity: 1;
+    }
+    80%,100% {
+        opacity: 0;
+        transform: translateX(-70px) translateY(95px) rotateZ(-30deg);
+    }
+}
+
+/***************** 管道动画结束 *****************/
+
+
+/***************** 联动动画 ***************************** 联动动画 ******************************** 联动动画 ********************/
+/**********************************************************数据源*********************************/
+.do-cont:after{
+    animation: do-cont-ak 20s linear infinite;
+}
+.do-cont:before{
+    opacity: 0;
+    animation: do-cont-bk 20s linear infinite;
+}
+@keyframes do-cont-ak {
+    0%{
+        opacity: 1;
+    }
+    2%,9%{
+        opacity: 0;
+    }
+    11%,100% {
+        opacity: 1;
+    }
+}
+@keyframes do-cont-bk {
+    0%{
+        opacity: 0;
+    }
+    2%,9%{
+        opacity: 1;
+    }
+    11%,100% {
+        opacity: 0;
+    }
+}
+/*数据源 底部数据*/
+.do-cont-shang > img:nth-child(1){
+    animation: fadeInUp4 20s infinite;
+}
+.do-cont-shang > img:nth-child(2){
+    animation: fadeInUp3 20s infinite;
+}
+.do-cont-shang > img:nth-child(3){
+    animation: fadeInUp2 20s infinite;
+}
+.do-cont-shang > img:nth-child(4){
+    animation: fadeInUp1 20s infinite;
+}
+@keyframes fadeInUp1 {
+    0%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp2 {
+    0%,1%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    3%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp3 {
+    0%,2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    4%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp4 {
+    0%,3%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    5%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/*数据源 底部数据结束*/
+/*数据源 光*/
+.do-top .xz-light:after{
+    animation: rotateLight1 20s linear infinite;
+}
+@keyframes rotateLight1 {
+    0%{
+        opacity: 0;
+        transform: rotateZ(0deg);
+    }
+    1%,9%{
+        opacity: 1;
+    }
+    10%,100%{
+        opacity: 0;
+        transform: rotateZ(500deg);
+    }
+}
+/*数据源 光结束*/
+/**********************************************************指标定义************************************/
+.id-cont:after{
+    animation: id-cont-ak 20s linear infinite;
+}
+.id-cont:before{
+    opacity: 0;
+    animation: id-cont-bk 20s linear infinite;
+}
+@keyframes id-cont-ak {
+    0%,17.8% {
+        opacity: 1;
+    }
+    19%,28%{
+        opacity: 0;
+    }
+    29.8%,100% {
+        opacity: 1;
+    }
+}
+@keyframes id-cont-bk {
+    0%,17.8% {
+        opacity: 0;
+    }
+    19%,28%{
+        opacity: 1;
+    }
+    29.8%,100% {
+        opacity: 0;
+    }
+}
+/*指标定义 底部数据*/
+.id-cont-shang > img:nth-child(1){
+    animation: fadeInUp8 20s infinite;
+}
+.id-cont-shang > img:nth-child(2){
+    animation: fadeInUp7 20s infinite;
+}
+.id-cont-shang > img:nth-child(3){
+    animation: fadeInUp6 20s infinite;
+}
+.id-cont-shang > img:nth-child(4){
+    animation: fadeInUp5 20s infinite;
+}
+@keyframes fadeInUp5 {
+    0%,18.8%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    20.8%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp6 {
+    0%,19.8%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    21.8%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp7 {
+    0%,20.8%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    22.8%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp8 {
+    0%,21.8%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    23.8%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/*指标定义 底部数据结束*/
+
+/*指标定义 光*/
+.id-top .xz-light:after{
+    animation: light-move 20s linear infinite;
+}
+@keyframes light-move {
+    0%,18.8%{
+        opacity: 0;
+        transform: rotateZ(0deg);
+    }
+    19.8%,27.8%{
+        opacity: 1;
+    }
+    28.8%,100%{
+        transform: rotateZ(500deg);
+        opacity: 0;
+    }
+}
+/*指标定义 光结束*/
+
+/*指标定义 文字*/
+.ib-1 .ab-txt:before{
+    animation:shake11 20s infinite;
+}
+.ib-2 .ab-txt:before{
+    animation:shake11 20s infinite;
+}
+.ib-3 .ab-txt:before{
+    animation:shake11 20s infinite;
+}
+.ib-4 .ab-txt:before{
+    animation:shake11 20s infinite;
+}
+@keyframes shake11 {
+    0%,18.8% {
+        opacity: 1;
+        transform: skewY(-30deg) scale(1);
+    }
+    21.3%{
+        opacity: 0.2;
+        transform: skewY(-30deg) scale(0.9);
+    }
+    23.8%,100% {
+        opacity: 1;
+        transform: skewY(-30deg) scale(1);
+    }
+}
+
+/*指标定义 文字结束*/
+/**********************************************************指标建模*************************************/
+.im-cont:after{
+    animation: im-cont-ak 20s linear infinite;
+}
+.im-cont:before{
+    animation: im-cont-bk 20s linear infinite;
+}
+@keyframes im-cont-ak {
+    0%,44.2% {
+        opacity: 1;
+    }
+    46.2%,54.2%{
+        opacity: 0;
+    }
+    56.2%,100% {
+        opacity: 1;
+    }
+}
+@keyframes im-cont-bk {
+    0%,44.2% {
+        opacity: 0;
+    }
+    46.2%,54.2%{
+        opacity: 1;
+    }
+    56.2%,100% {
+        opacity: 0;
+    }
+}
+/*指标建模 底部数据*/
+.im-cont-shang > img:nth-child(1){
+    animation: fadeInUp14 20s infinite;
+}
+.im-cont-shang > img:nth-child(2){
+    animation: fadeInUp13 20s infinite;
+}
+.im-cont-shang > img:nth-child(3){
+    animation: fadeInUp12 20s infinite;
+}
+.im-cont-shang > img:nth-child(4){
+    animation: fadeInUp11 20s infinite;
+}
+.im-cont-shang > img:nth-child(5){
+    animation: fadeInUp10 20s infinite;
+}
+.im-cont-shang > img:nth-child(6){
+    animation: fadeInUp9 20s infinite;
+}
+@keyframes fadeInUp9 {
+    0%,45.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    47.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp10 {
+    0%,46.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    48.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp11 {
+    0%,47.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    49.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp12 {
+    0%,48.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    50.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp13 {
+    0%,49.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    51.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp14 {
+    0%,50.2%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    52.2%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/*指标建模 底部数据结束*/
+
+/*指标建模 光*/
+.im-top .xz-light:after{
+    animation: light-move2 20s linear infinite;
+}
+@keyframes light-move2 {
+    0%,45.2% {
+        opacity: 0;
+        transform: rotateZ(0deg);
+    }
+    47.2%,53.2%{
+        opacity: 1;
+    }
+    55.2%,100%{
+        transform: rotateZ(500deg);
+        opacity: 0;
+    }
+}
+/*指标建模 光结束*/
+/**********************************************************指标固化****************************************/
+.gh-dibu .title:after{
+    animation: gh-dibu-ak 20s linear infinite;
+}
+.gh-dibu .title:before{
+    opacity: 0;
+    animation: gh-dibu-bk 20s linear infinite;
+}
+@keyframes gh-dibu-ak {
+    0%,61% {
+        opacity: 1;
+    }
+    63%,71%{
+        opacity: 0;
+    }
+    73%,100% {
+        opacity: 1;
+    }
+}
+@keyframes gh-dibu-bk {
+    0%,61% {
+        opacity: 0;
+    }
+    63%,71%{
+        opacity: 1;
+    }
+    73%,100% {
+        opacity: 0;
+    }
+}
+/*指标固化 底部数据*/
+.gh-dibu .data > img:nth-child(1){
+    animation: fadeInUp18 20s infinite;
+}
+.gh-dibu .data > img:nth-child(2){
+    animation: fadeInUp17 20s infinite;
+}
+.gh-dibu .data > img:nth-child(3){
+    animation: fadeInUp16 20s infinite;
+}
+.gh-dibu .data > img:nth-child(4){
+    animation: fadeInUp15 20s infinite;
+}
+@keyframes fadeInUp15 {
+    0%,62%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    64%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp16 {
+    0%,63%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    65%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp17 {
+    0%,64%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    66%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp18 {
+    0%,65%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    67%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/*指标固化 底部数据结束*/
+
+/*指标固化 光*/
+.gh-top .board:after{
+    animation: light-move3 20s linear infinite;
+}
+@keyframes light-move3 {
+    0%,62% {
+        opacity: 0;
+        transform: rotateZ(0deg);
+    }
+    63%,71%{
+        opacity: 1;
+    }
+    72%,100%{
+        transform: rotateZ(500deg);
+        opacity: 0;
+    }
+}
+/*指标固化 光结束*/
+
+/*指标固化 文字*/
+.etl-text{
+    animation:shake22 20s infinite;
+}
+.rzck-text{
+    animation:shake22 20s infinite;
+}
+.zlsz-text{
+    animation:shake22 20s infinite;
+}
+.zqsz-text{
+    animation:shake22 20s infinite;
+}
+@keyframes shake22 {
+    0%,62% {
+        opacity: 1;
+        transform: skewY(-30deg) scale(1);
+    }
+    64.5%{
+        opacity: 0.2;
+        transform: skewY(-30deg) scale(0.9);
+    }
+    67%,100% {
+        opacity: 1;
+        transform: skewY(-30deg) scale(1);
+    }
+}
+/*指标固化 文字结束*/
+/**********************************************************指标应用****************************************/
+.yy-dibu .title:after{
+    animation: yy-dibu-ak 20s linear infinite;
+}
+.yy-dibu .title:before{
+    opacity: 0;
+    animation: yy-dibu-bk 20s linear infinite;
+}
+@keyframes yy-dibu-ak {
+    0%,79% {
+        opacity: 1;
+    }
+    81%,89%{
+        opacity: 0;
+    }
+    91%,100% {
+        opacity: 1;
+    }
+}
+@keyframes yy-dibu-bk {
+    0%,79% {
+        opacity: 0;
+    }
+    81%,89%{
+        opacity: 1;
+    }
+    91%,100% {
+        opacity: 0;
+    }
+}
+/*指标应用  底部数据*/
+.yy-dibu .data > img:nth-child(1){
+    animation: fadeInUp20 20s infinite;
+}
+.yy-dibu .data > img:nth-child(2){
+    animation: fadeInUp19 20s infinite;
+}
+@keyframes fadeInUp19 {
+    0%,80%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    82%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+@keyframes fadeInUp20 {
+    0%,81%{
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    83%,100%{
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/*指标应用 底部数据结束*/
+
+/*指标应用 光结束*/
+.yy-top .board:after{
+    animation: light-move4 20s linear infinite;
+}
+@keyframes light-move4 {
+    0%,80%{
+        opacity: 0;
+        transform: rotateZ(0deg);
+    }
+    81%,89%{
+        opacity: 1;
+    }
+    90%,100% {
+        transform: rotateZ(500deg);
+        opacity: 0;
+    }
+}
+/*指标应用 光结束*/
+
+/*指标应用 文字*/
+.mjkb-text{
+    animation:shake33 20s infinite;
+}
+.kbj-text{
+    animation:shake33 20s infinite;
+}
+.jxbg-text{
+    animation:shake33 20s infinite;
+}
+@keyframes shake33 {
+    0%,80% {
+        opacity: 1;
+        transform: skewY(30deg) scale(1);
+    }
+    82.5%{
+        opacity: 0.2;
+        transform: skewY(30deg) scale(0.9);
+    }
+    85%,100% {
+        opacity: 1;
+        transform: skewY(30deg) scale(1);
+    }
+}
+/*指标应用 文字结束*/
