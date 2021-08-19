@@ -1,41 +1,17 @@
 <template>
-  <div>
-    <!-- 详情的对话框 -->
-    <el-dialog :title="title" :visible.sync="visible" width="1000px">
-      <div id="header">
-      </div>
-      <el-table :data="gridData">
-        <el-table-column property="name" label="插件名称" width="230"></el-table-column>
-        <el-table-column property="extension_version" label="安装版本" width="130"></el-table-column>
-        <el-table-column property="comment" label="描述"></el-table-column>
-      </el-table>
-    </el-dialog>
-
-    <!-- 修改按钮的form -->
-    <el-dialog :title="formTitle" :visible.sync="visibleChange" width="700px">
-      <el-form ref="form" :model="form" label-width="90px" :title='formTitle'>
-        <el-form-item label="url" prop="url">
-          <el-input v-model="form.url" placeholder="请输入url"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="visibleChange = false">取 消</el-button>
-        <el-button type="primary" @click="submitForm">确 定</el-button>
-      </div>
-    </el-dialog>
-
-    <el-button id="button"
-               type="primary"
-               icon="el-icon-plus"
-               size="small"
-               @click="addRow"
-    >新增</el-button>
-  </div>
+  <el-popover
+    placement="top-start"
+    title="标题"
+    width="200"
+    trigger="hover"
+    content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
+    <el-button slot="reference">hover 激活</el-button>
+  </el-popover>
 
 </template>
 
 <script>
-import { listType,getType,delType,updateType,addType } from "@/api/index";
+import { listType,getType,delType,updateType,addType } from "@/api/index";6
 export default {
   name: "test",
   data() {

@@ -21,6 +21,9 @@ export default {
 }
 #app {
 }
+.el-popover {
+}
+
 </style>
 
 

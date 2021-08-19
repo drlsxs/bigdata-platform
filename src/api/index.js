@@ -7,7 +7,7 @@ export function listType() {
   console.log("listType:");
   return axios({
     method:'get',
-    url:'http://192.168.0.181:8080/allSlaves',
+    url:'http://192.168.0.122:8080/allSlaves',
     params:{}
   })
 }
@@ -16,7 +16,7 @@ export function listType() {
 export function getType(data) {
   console.log("data:",data);
   return axios({
-    url: 'http://192.168.0.181:8080/selectSlave/',
+    url: 'http://192.168.0.122:8080/selectSlave/',
     method: 'get',
     params: data
   })
@@ -26,7 +26,7 @@ export function getType(data) {
 export function addType(data) {
   console.log("新增:",data)
   return axios({
-    url: 'http://192.168.0.181:8080/addSlave',
+    url: 'http://192.168.0.122:8080/addSlave',
     method: 'get',
     params: data
   })
@@ -36,7 +36,7 @@ export function addType(data) {
 export function updateType(data) {
   console.log("修改节点类型",data);
   return axios({
-    url: 'http://192.168.0.181:8080/updateSlave',
+    url: 'http://192.168.0.122:8080/updateSlave',
     method: 'get',
     params: data
   })
@@ -46,7 +46,7 @@ export function updateType(data) {
 export function delType(data) {
   console.log("delete-id:",data);
   return axios({
-    url: 'http://192.168.0.181:8080/deleteSlave',
+    url: 'http://192.168.0.122:8080/deleteSlave',
     method: 'get',
     params: data
   })

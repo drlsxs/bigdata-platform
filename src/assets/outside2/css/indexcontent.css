@@ -9,7 +9,7 @@
     -ms-transform: all 1s;
     -o-transform: all 1s;
     transform: all 1s;
-    /*todo 修改了整体的动画代码*/
+    /*fixme 修改了整体的动画代码*/
     /*-webkit-animation-duration: 3s;*/
     /*-o-animation-duration: 3s;*/
     /*animation-duration: 3s;*/
@@ -47,68 +47,65 @@ body {
     background-image: linear-gradient(180deg, #193b8f 0%, #110450 100%);
 }
 
-@media only screen and (max-width: 1920px) {
-    .warp {
-        transform: scale(1, 1);
-    }
-}
+/*@media only screen and (max-width: 1920px) {*/
+/*    .warp {*/
+/*        transform: scale(1, 1);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1680px) {
-    .warp {
-        transform: scale(0.9, 0.9);
-    }
-}
+/*@media only screen and (max-width: 1680px) {*/
+/*    .warp {*/
+/*        transform: scale(0.9, 0.9);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1440px) {
-    .warp {
-        transform: scale(0.8, 0.8);
-    }
-}
+/*@media only screen and (max-width: 1440px) {*/
+/*    .warp {*/
+/*        transform: scale(0.8, 0.8);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1366px) {
-    .warp {
-        transform: scale(0.75, 0.75);
-    }
-}
+/*@media only screen and (max-width: 1366px) {*/
+/*    .warp {*/
+/*        transform: scale(0.75, 0.75);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1280px) {
-    .warp {
-        transform: scale(0.7, 0.7);
-    }
-}
+/*@media only screen and (max-width: 1280px) {*/
+/*    .warp {*/
+/*        transform: scale(0.7, 0.7);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1100px) {
-    .warp {
-        transform: scale(0.65, 0.65);
-    }
-}
+/*@media only screen and (max-width: 1100px) {*/
+/*    .warp {*/
+/*        transform: scale(0.65, 0.65);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 1024px) {
-    .warp {
-        transform: scale(0.6, 0.6);
-    }
-}
+/*@media only screen and (max-width: 1024px) {*/
+/*    .warp {*/
+/*        transform: scale(0.6, 0.6);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 960px) {
-    .warp {
-        transform: scale(0.55, 0.55);
-    }
-}
+/*@media only screen and (max-width: 960px) {*/
+/*    .warp {*/
+/*        transform: scale(0.55, 0.55);*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 640px) {
-    .warp {
-        transform: scale(0.34, 0.34);
-    }
-}
+/*@media only screen and (max-width: 640px) {*/
+/*    .warp {*/
+/*        transform: scale(0.34, 0.34);*/
+/*    }*/
+/*}*/
 
 .warp {
-    position: fixed;
-    width: 1100px;
-    height: 674px;
-    overflow: hidden;
-    left: 50%;
-    top: 50%;
-    margin: -337px 0 0 -595px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 /********************** 李双双 ***********************/
@@ -209,14 +206,15 @@ body {
     right: 7px;
     bottom: 240px;
 }
+
 /*数据源*/
-.data-origin{
-    position: absolute;
-    bottom: 137px;
-    left: 105px;
-    width: 200px;
-    height: 340px;
-    background: url("../images/sjy_di01.png") bottom center no-repeat;
+.data-origin {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url("../images/sjy_di01.png") bottom left -200px no-repeat;
 }
 .data-origin > div{
     position: absolute;
@@ -298,12 +296,13 @@ body {
     background-size: 100%;
     background-position: 30px 30px;
 }
-.do-anim{
-    width: 120px;
-    height: 200px;
-    left: 42px;
-    top: 10px;
-    background: url("../images/sjy_top02.png") bottom no-repeat;
+.do-anim {
+  transform: scale(0.6);
+  width: 120px;
+  height: 200px;
+  left: 42px;
+  top: 87px;
+  background: url("../images/sjy_top02.png") bottom no-repeat;
 }
 .do-anim > span{
     position: absolute;
@@ -370,13 +369,15 @@ body {
 /*数据源 结束*/
 
 /*指标定义*/
-.index-define{
-    position: absolute;
-    bottom: 220px;
-    left: 280px;
-    width: 336px;
-    height: 450px;
-    background: url("../images/dy_di01.png") left 10px top 211px no-repeat;
+.index-define {
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 336px;
+  height: 450px;
+  background: url("../images/dy_di01.png") left -10px top 211px no-repeat;
 }
 .index-define > div{
     position: absolute;
@@ -467,10 +468,25 @@ body {
     position: absolute;
     display: inline-block;
 }
+
+.Y-ib-2 {
+  left: 16px !important;
+  top: 179px !important;
+}
+.Y-ib-4 {
+  left: 110px !important;
+  top: 179px !important;
+}
+.Y-ib-1 {
+  left: 63px !important;
+  top: 205px !important;
+}
+
 .ib-1{
     left: 50px;
     top: 100px;
 }
+
 .ib-2{
     left: 170px;
     top: 30px;
