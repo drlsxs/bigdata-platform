@@ -1,6 +1,7 @@
 // import request from '@/utils/request'
 import axios from 'axios'
-axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+
+axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 
 // 查询节点类型列表
 export function listType() {
@@ -52,3 +53,15 @@ export function delType(data) {
   })
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//简单查询api
+export function selectList(data) {
+  console.log("Select-- Post",data);
+  return axios({
+    url: 'http://192.168.0.122:8080/query',
+    method: 'post',
+    data: data,
+    // headers: {'content-type': 'application/x-www-form-urlencoded'}
+  })
+}

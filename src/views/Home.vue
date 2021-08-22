@@ -209,7 +209,6 @@
 
 </template>
 <script>
-import $ from "@/assets/outside/js/jquery.min.js"
 export default {
   name: "Home",
   mounted() {
@@ -250,7 +249,7 @@ export default {
         }
 
       }
-      console.log( "屏幕高："+screenH  );
+      console.log( "屏幕高："+screenH );
       console.log( "可书化高："+bodyH );
 
       //方法二

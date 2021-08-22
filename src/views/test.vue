@@ -11,9 +11,14 @@
 </template>
 
 <script>
-import { listType,getType,delType,updateType,addType } from "@/api/index";6
+import { listType,getType,delType,updateType,addType } from "@/api/index";
 export default {
   name: "test",
+  mounted() {
+    $(function () {
+      console.log("初始化");
+    });
+  },
   data() {
     return {
       title:'',
@@ -30,6 +35,7 @@ export default {
       ],
     };
   },
+
   created() {
     this.getList();
   },

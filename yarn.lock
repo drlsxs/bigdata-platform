@@ -5039,6 +5039,11 @@ javascript-stringify@^2.0.1:
   resolved "https://registry.nlark.com/javascript-stringify/download/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
   integrity sha1-J8dlOb4U2L0Sghmi1zGwkzeQTnk=
 
+jquery@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/jquery/download/jquery-2.1.0.tgz#1c9a8c971d2b53dae10d72e16cbb5a1df16a4ace"
+  integrity sha1-HJqMlx0rU9rhDXLhbLtaHfFqSs4=
+
 js-cookie@^3.0.0:
   version "3.0.0"
   resolved "https://registry.nlark.com/js-cookie/download/js-cookie-3.0.0.tgz?cache=0&sync_timestamp=1627319452652&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fjs-cookie%2Fdownload%2Fjs-cookie-3.0.0.tgz#db1661d5459920ec95aaf186ccf74ceb4a495164"

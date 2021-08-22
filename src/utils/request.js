@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Notification, MessageBox, Message } from 'element-ui'
-import store from '@/store'
+// import store from '@/store'
 import { getToken } from '@/utils/auth'
 import errorCode from '@/utils/errorCode'
 
@@ -38,9 +38,9 @@ service.interceptors.response.use(res => {
           type: 'warning'
         }
       ).then(() => {
-        store.dispatch('LogOut').then(() => {
-          location.href = '/index';
-        })
+        // store.dispatch('LogOut').then(() => {
+        //   location.href = '/index';
+        // })
       })
     } else if (code === 500) {
       Message({

@@ -211,9 +211,9 @@ body {
 .data-origin {
   position: absolute;
   width: 200px;
-  height: 100%;
   left: 50%;
   transform: translateX(-50%);
+  height: 340px;
   background: url("../images/sjy_di01.png") bottom left -200px no-repeat;
 }
 .data-origin > div{
@@ -301,7 +301,7 @@ body {
   width: 120px;
   height: 200px;
   left: 42px;
-  top: 87px;
+  top: 7px;
   background: url("../images/sjy_top02.png") bottom no-repeat;
 }
 .do-anim > span{
@@ -470,16 +470,16 @@ body {
 }
 
 .Y-ib-2 {
-  left: 16px !important;
-  top: 179px !important;
+  left: 15px !important;
+  top: 117px !important;
 }
 .Y-ib-4 {
-  left: 110px !important;
-  top: 179px !important;
+  left: 115px !important;
+  top: 118px !important;
 }
 .Y-ib-1 {
   left: 63px !important;
-  top: 205px !important;
+  top: 143px !important;
 }
 
 .ib-1{
