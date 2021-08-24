@@ -368,7 +368,6 @@ export default {
     },
     handleClose() {
       this.drawer = false;
-      // console.log()
     },
     showList(index) {
       this.drawerTitle = "查看节点";
