@@ -57,11 +57,33 @@ export function delType(data) {
 
 //简单查询api
 export function selectList(data) {
-  console.log("Select-- Post",data);
   return axios({
     url: 'http://192.168.0.122:8080/query',
     method: 'post',
     data: data,
-    // headers: {'content-type': 'application/x-www-form-urlencoded'}
+  })
+}
+
+export function insertList(data) {
+  return axios({
+    url: 'http://192.168.0.122:8080/query',
+    method: 'post',
+    data: data,
+  })
+}
+
+export function deleteList(data) {
+  return axios({
+    url: 'http://192.168.0.122:8080/query',
+    method: 'post',
+    data: data,
+  })
+}
+
+export function updateList(data) {
+  return axios({
+    url: 'http://192.168.0.122:8080/query',
+    method: 'post',
+    data: data,
   })
 }

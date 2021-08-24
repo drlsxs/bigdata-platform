@@ -5,6 +5,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import router from "./router";
 // import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+//添加响应rem
+import "./utils/flexible";
 import jquery from 'jquery';
 window.jquery = window.$ = jquery
 import {resetForm} from "@/utils/index"

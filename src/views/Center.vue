@@ -1,276 +1,285 @@
 <template>
-  <div class="Y-center">
-    <div class="warp" ref="warp">
-      <!--底部方块 开始-->
-      <div class="floor">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+  <div class="Y_container">
+    <div class="Y-center">
+      <div class="warp" ref="warp">
+        <!--底部方块 开始-->
+        <div class="floor">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <!--底部方块 结束-->
+        <!--指标定义 开始-->
+        <div class="index-define"
+             slot="reference"
+        >
+          <div class="id-cont-shang">
+            <img src="@/assets/outside2/images/dy_di02.png">
+            <img src="@/assets/outside2/images/dy_di03.png">
+            <img src="@/assets/outside2/images/dy_di02.png">
+            <img src="@/assets/outside2/images/dy_di03.png">
+          </div>
+          <div class="id-cont"></div>
+          <div class="id-top">
+            <div class="xz-light"></div>
+          </div>
+          <div class="id-ambox ib-1">
+            <span class="ab-guang"></span>
+            <span class="ab-xg"></span>
+            <span class="ab-img"></span>
+            <span class="ab-txt"></span>
+          </div>
+          <div class="id-ambox ib-2">
+            <span class="ab-guang"></span>
+            <span class="ab-xg"></span>
+            <span class="ab-img"></span>
+            <span class="ab-txt"></span>
+          </div>
+          <div class="id-ambox ib-3" @click="addRow">
+            <span class="ab-guang"></span>
+            <span class="ab-xg"></span>
+            <span class="ab-img"></span>
+            <span class="ab-txt"></span>
+          </div>
+          <div class="id-ambox ib-4">
+            <span class="ab-guang"></span>
+            <span class="ab-xg"></span>
+            <span class="ab-img"></span>
+            <span class="ab-txt"></span>
+          </div>
+        </div>
+        <!--指标定义 结束-->
+        <div class="inner-ctr">
+          <!--todo 先改成3x3后面一圈4x4-->
+          <el-row>
+            <el-col :span="8" v-for="(item,index) in tableData" :key="item.uuid">
+              <!--节点容器开始-->
+              <div class="node-container" >
+                <div class="data-origin" ref="origin" @click="showList(index)">
+                  <div class="do-cont-shang">
+                    <img src="@/assets/outside2/images/sjy_di02.png">
+                    <img src="@/assets/outside2/images/sjy_di03.png">
+                    <img src="@/assets/outside2/images/sjy_di02.png">
+                    <img src="@/assets/outside2/images/sjy_di03.png">
+                  </div>
+                  <div class="do-cont"></div>
+                  <div class="do-top">
+                    <div class="xz-light"></div>
+                  </div>
+                  <div class="do-anim">
+                    <span class="an-guang"></span>
+                    <span class="an-guang-sp">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+            </span>
+                    <span class="an-jiaz"></span>
+                    <span class="an-img">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+            </span>
+                  </div>
+                  <!--节点修改和节点删除开始-->
+                  <div class="id-ambox ib-2 Y-ib-2" @click.stop="handleDelete(item)">
+                    <span class="ab-guang"></span>
+                    <span class="ab-xg"></span>
+                    <span class="ab-img"></span>
+                    <span class="ab-txt"></span>
+                  </div>
+                  <div class="id-ambox ib-4 Y-ib-4" @click.stop="handleChange(item)">
+                    <span class="ab-guang"></span>
+                    <span class="ab-xg"></span>
+                    <span class="ab-img"></span>
+                    <span class="ab-txt"></span>
+                  </div>
+                  <div class="id-ambox ib-1 Y-ib-1" @click.stop="handleDetail(item)">
+                    <span data-v-628cac8f="" class="ab-guang"></span>
+                    <span data-v-628cac8f="" class="ab-xg"></span>
+                    <span data-v-628cac8f="" class="ab-img"></span>
+                    <span data-v-628cac8f="" class="ab-txt"></span>
+                  </div>
+                  <!--节点修改和节点删除结束-->
+                </div>
+              </div>
+              <!--节点容器结束-->
+            </el-col>
+          </el-row>
+
+        </div>
+
+        <!--至于箭头,可以这么做先定义箭头开始：-->
+        <!--<svg>-->
+        <!--  <defs>-->
+        <!--    <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">-->
+        <!--      <path xmlns="http://www.w3.org/2000/svg" d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: #ff00ff;" />-->
+        <!--    </marker>-->
+        <!--  </defs>-->
+        <!--</svg>-->
+        <!--至于箭头,可以这么做先定义箭头结束：-->
       </div>
-      <!--底部方块 结束-->
-      <!--指标定义 开始-->
-      <div class="index-define"
-           slot="reference"
+      <!--新增抽屉-->
+      <el-drawer
+        :title="drawerTitle"
+        :before-close="handleClose"
+        :visible.sync="drawer"
+        direction="ltr"
+        custom-class="demo-drawer"
+        ref="drawer"
+        :size="drawerSize"
+        class="addDrawer"
+        :append-to-body="true"
       >
-        <div class="id-cont-shang">
-          <img src="@/assets/outside2/images/dy_di02.png">
-          <img src="@/assets/outside2/images/dy_di03.png">
-          <img src="@/assets/outside2/images/dy_di02.png">
-          <img src="@/assets/outside2/images/dy_di03.png">
+        <div class="demo-drawer__content">
+          <el-form ref="form" :model="form" label-width="90px" :title='formTitle'>
+            <el-form-item label="url" prop="url">
+              <el-input v-model="form.url" placeholder="请输入url"></el-input>
+            </el-form-item>
+          </el-form>
+          <div class="demo-drawer__footer">
+            <el-button @click="cancelForm">取 消</el-button>
+            <el-button type="primary" @click="submitForm" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
+          </div>
         </div>
-        <div class="id-cont"></div>
-        <div class="id-top">
-          <div class="xz-light"></div>
+      </el-drawer>
+      <!--列表抽屉-->
+      <el-drawer
+        :title="drawerTitle"
+        :before-close="handleCloseList"
+        :visible.sync="drawerList"
+        direction="ltr"
+        custom-class="demo-drawer"
+        ref="drawer"
+        :size="drawerSize"
+        :append-to-body="true"
+        v-if="tableData.length > 0"
+      >
+        <div class="demo-drawer__content">
+          <div class="Y_wrap">
+            <div class="flex-inner">
+              <ul>
+                <li> <span>url</span> &nbsp;{{tableData[tableIndex].url}}</li>
+                <li> <span class="x1">操作系统</span> &nbsp;{{tableData[tableIndex].pg_version}}</li>
+                <li> <span>创建时间</span> &nbsp;{{tableData[tableIndex].create_time}}</li>
+                <li> <span>更新时间</span> &nbsp;{{tableData[tableIndex].update_time}}</li>
+                <li> <span>状态</span> &nbsp;{{tableData[tableIndex].status}}</li>
+              </ul>
+            </div>
+          </div>
+
+          <!--<el-table :data="[tableData[tableIndex]]" stripe style="width: 90%" v-loading="loading">-->
+          <!--  <el-table-column-->
+          <!--    fixed prop="url"-->
+          <!--    label="url"-->
+          <!--    width="185">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="pg_version"-->
+          <!--    label="数据库版本"-->
+          <!--    width="160">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="os"-->
+          <!--    label="操作系统"-->
+          <!--    width="160">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="create_time"-->
+          <!--    label="创建时间"-->
+          <!--    width="140">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="update_time"-->
+          <!--    label="更新时间"-->
+          <!--    width="140">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="status"-->
+          <!--    label="状态"-->
+          <!--    width="120" :formatter="statusFormat">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    fixed="right"-->
+          <!--    label="操作">-->
+          <!--  </el-table-column>-->
+          <!--</el-table>-->
         </div>
-        <div class="id-ambox ib-1">
-          <span class="ab-guang"></span>
-          <span class="ab-xg"></span>
-          <span class="ab-img"></span>
-          <span class="ab-txt"></span>
+      </el-drawer>
+      <!--详情抽屉-->
+      <el-drawer
+        :title="drawerTitle"
+        :before-close="handleCloseDetail"
+        :visible.sync="drawerDetail"
+        direction="ltr"
+        custom-class="demo-drawer"
+        ref="drawer"
+        :size="drawerSize"
+        :append-to-body="true"
+      >
+        <div class="demo-drawer__content">
+          <el-table :data="gridData">
+            <el-table-column property="name" label="插件名称"></el-table-column>
+            <el-table-column property="extension_version" label="安装版本"></el-table-column>
+            <el-table-column property="comment" label="描述"></el-table-column>
+          </el-table>
         </div>
-        <div class="id-ambox ib-2">
-          <span class="ab-guang"></span>
-          <span class="ab-xg"></span>
-          <span class="ab-img"></span>
-          <span class="ab-txt"></span>
-        </div>
-        <div class="id-ambox ib-3" @click="addRow">
-          <span class="ab-guang"></span>
-          <span class="ab-xg"></span>
-          <span class="ab-img"></span>
-          <span class="ab-txt"></span>
-        </div>
-        <div class="id-ambox ib-4">
-          <span class="ab-guang"></span>
-          <span class="ab-xg"></span>
-          <span class="ab-img"></span>
-          <span class="ab-txt"></span>
-        </div>
-      </div>
-      <!--指标定义 结束-->
-      <div class="inner-ctr">
-        <!--todo 先改成3x3后面一圈4x4-->
-        <el-row>
-          <el-col :span="8" v-for="(item,index) in tableData" :key="item.uuid">
-            <!--节点容器开始-->
-            <div class="node-container" >
-              <div class="data-origin" ref="origin" @click="showList(index)">
-                <div class="do-cont-shang">
-                  <img src="@/assets/outside2/images/sjy_di02.png">
-                  <img src="@/assets/outside2/images/sjy_di03.png">
-                  <img src="@/assets/outside2/images/sjy_di02.png">
-                  <img src="@/assets/outside2/images/sjy_di03.png">
-                </div>
-                <div class="do-cont"></div>
-                <div class="do-top">
-                  <div class="xz-light"></div>
-                </div>
-                <div class="do-anim">
-                  <span class="an-guang"></span>
-                  <span class="an-guang-sp">
-                <img src="@/assets/outside2/images/sjy_top03.png">
-                <img src="@/assets/outside2/images/sjy_top03.png">
-                <img src="@/assets/outside2/images/sjy_top03.png">
-            </span>
-                  <span class="an-jiaz"></span>
-                  <span class="an-img">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-                <img src="@/assets/outside2/images/sjy_top05.png">
-            </span>
-                </div>
-                <!--节点修改和节点删除开始-->
-                <div class="id-ambox ib-2 Y-ib-2" @click.stop="handleDelete(item)">
-                  <span class="ab-guang"></span>
-                  <span class="ab-xg"></span>
-                  <span class="ab-img"></span>
-                  <span class="ab-txt"></span>
-                </div>
-                <div class="id-ambox ib-4 Y-ib-4" @click.stop="handleChange(item)">
-                  <span class="ab-guang"></span>
-                  <span class="ab-xg"></span>
-                  <span class="ab-img"></span>
-                  <span class="ab-txt"></span>
-                </div>
-                <div class="id-ambox ib-1 Y-ib-1" @click.stop="handleDetail(item)">
-                  <span data-v-628cac8f="" class="ab-guang"></span>
-                  <span data-v-628cac8f="" class="ab-xg"></span>
-                  <span data-v-628cac8f="" class="ab-img"></span>
-                  <span data-v-628cac8f="" class="ab-txt"></span>
-                </div>
-                <!--节点修改和节点删除结束-->
+      </el-drawer>
+      <!--删除抽屉-->
+      <el-drawer
+        :title="drawerTitle"
+        :before-close="handleCloseDelete"
+        :visible.sync="drawerDelete"
+        direction="ltr"
+        custom-class="demo-drawer"
+        ref="drawer"
+        :size="drawerSize"
+        class="delDrawer"
+        :append-to-body="true"
+      >
+        <div class="demo-drawer__content">
+          <div class="el-message-box">
+            <div class="el-message-box__header">
+              <div class="el-message-box__title"><!----><span>警告</span></div>
+              <button type="button" aria-label="Close" class="el-message-box__headerbtn">
+              </button>
+            </div>
+            <div class="el-message-box__content">
+              <div class="el-message-box__container"><!---->
+                <div class="el-message-box__status el-icon-warning"></div>
+                <div class="el-message-box__message"><p><span>{{`是否确认删除url为${deleteUrl}的数据项?`}} </span></p></div>
+              </div>
+              <div class="el-message-box__input" style="display: none;">
+                <div class="el-input"><!----><input type="text" autocomplete="off" placeholder="" class="el-input__inner"><!----><!---->
+                  <!----><!----></div>
+                <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
               </div>
             </div>
-            <!--节点容器结束-->
-          </el-col>
-        </el-row>
-
-      </div>
-
-      <!--至于箭头,可以这么做先定义箭头开始：-->
-      <!--<svg>-->
-      <!--  <defs>-->
-      <!--    <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">-->
-      <!--      <path xmlns="http://www.w3.org/2000/svg" d="M2,2 L10,6 L2,10 L6,6 L2,2" style="fill: #ff00ff;" />-->
-      <!--    </marker>-->
-      <!--  </defs>-->
-      <!--</svg>-->
-      <!--至于箭头,可以这么做先定义箭头结束：-->
-    </div>
-    <!--新增抽屉-->
-    <el-drawer
-      :title="drawerTitle"
-      :before-close="handleClose"
-      :visible.sync="drawer"
-      direction="ltr"
-      custom-class="demo-drawer"
-      ref="drawer"
-      :size="drawerSize"
-      class="addDrawer"
-    >
-      <div class="demo-drawer__content">
-        <el-form ref="form" :model="form" label-width="90px" :title='formTitle'>
-          <el-form-item label="url" prop="url">
-            <el-input v-model="form.url" placeholder="请输入url"></el-input>
-          </el-form-item>
-        </el-form>
-        <div class="demo-drawer__footer">
-          <el-button @click="cancelForm">取 消</el-button>
-          <el-button type="primary" @click="submitForm" :loading="loading">{{ loading ? '提交中 ...' : '确 定' }}</el-button>
-        </div>
-      </div>
-    </el-drawer>
-    <!--列表抽屉-->
-    <el-drawer
-      :title="drawerTitle"
-      :before-close="handleCloseList"
-      :visible.sync="drawerList"
-      direction="ltr"
-      custom-class="demo-drawer"
-      ref="drawer"
-      :size="drawerSize"
-    >
-      <div class="demo-drawer__content">
-        <div class="Y_wrap">
-          <div class="flex-inner">
-            <ul>
-              <li> <span>url</span> &nbsp;{{tableData[tableIndex].url}}</li>
-              <li> <span class="x1">操作系统</span> &nbsp;{{tableData[tableIndex].pg_version}}</li>
-              <li> <span>创建时间</span> &nbsp;{{tableData[tableIndex].create_time}}</li>
-              <li> <span>更新时间</span> &nbsp;{{tableData[tableIndex].update_time}}</li>
-              <li> <span>状态</span> &nbsp;{{tableData[tableIndex].status}}</li>
-            </ul>
-          </div>
-        </div>
-
-        <!--<el-table :data="[tableData[tableIndex]]" stripe style="width: 90%" v-loading="loading">-->
-        <!--  <el-table-column-->
-        <!--    fixed prop="url"-->
-        <!--    label="url"-->
-        <!--    width="185">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    prop="pg_version"-->
-        <!--    label="数据库版本"-->
-        <!--    width="160">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    prop="os"-->
-        <!--    label="操作系统"-->
-        <!--    width="160">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    prop="create_time"-->
-        <!--    label="创建时间"-->
-        <!--    width="140">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    prop="update_time"-->
-        <!--    label="更新时间"-->
-        <!--    width="140">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    prop="status"-->
-        <!--    label="状态"-->
-        <!--    width="120" :formatter="statusFormat">-->
-        <!--  </el-table-column>-->
-        <!--  <el-table-column-->
-        <!--    fixed="right"-->
-        <!--    label="操作">-->
-        <!--  </el-table-column>-->
-        <!--</el-table>-->
-      </div>
-    </el-drawer>
-    <!--详情抽屉-->
-    <el-drawer
-      :title="drawerTitle"
-      :before-close="handleCloseDetail"
-      :visible.sync="drawerDetail"
-      direction="ltr"
-      custom-class="demo-drawer"
-      ref="drawer"
-      :size="drawerSize"
-    >
-      <div class="demo-drawer__content">
-        <el-table :data="gridData">
-          <el-table-column property="name" label="插件名称" width="230"></el-table-column>
-          <el-table-column property="extension_version" label="安装版本" width="130"></el-table-column>
-          <el-table-column property="comment" label="描述"></el-table-column>
-        </el-table>
-      </div>
-    </el-drawer>
-    <!--删除抽屉-->
-    <el-drawer
-      :title="drawerTitle"
-      :before-close="handleCloseDelete"
-      :visible.sync="drawerDelete"
-      direction="ltr"
-      custom-class="demo-drawer"
-      ref="drawer"
-      :size="drawerSize"
-      class="delDrawer"
-    >
-      <div class="demo-drawer__content">
-        <div class="el-message-box">
-          <div class="el-message-box__header">
-            <div class="el-message-box__title"><!----><span>警告</span></div>
-            <button type="button" aria-label="Close" class="el-message-box__headerbtn">
-            </button>
-          </div>
-          <div class="el-message-box__content">
-            <div class="el-message-box__container"><!---->
-              <div class="el-message-box__status el-icon-warning"></div>
-              <div class="el-message-box__message"><p><span>{{`是否确认删除url为${deleteUrl}的数据项?`}} </span></p></div>
-            </div>
-            <div class="el-message-box__input" style="display: none;">
-              <div class="el-input"><!----><input type="text" autocomplete="off" placeholder="" class="el-input__inner"><!----><!---->
-                <!----><!----></div>
-              <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
-            </div>
-          </div>
-          <div class="el-message-box__btns">
-            <button type="button" class="el-button el-button--default el-button--small" @click="handleCloseDelete"><!----><!----><span>
+            <div class="el-message-box__btns">
+              <button type="button" class="el-button el-button--default el-button--small" @click="handleCloseDelete"><!----><!----><span>
           取消
         </span></button>
-            <button type="button" class="el-button el-button--default el-button--small el-button--primary" @click="delNode"><!----><!----><span>
+              <button type="button" class="el-button el-button--default el-button--small el-button--primary" @click="delNode"><!----><!----><span>
           确定
         </span></button>
+            </div>
           </div>
         </div>
-      </div>
-    </el-drawer>
+      </el-drawer>
+      <!--test-->
+      <!--test2-->
+    </div>
     <div class="Y_mask" v-show="handVisiable">
       <img class="h1 Y_img" src="@/assets/images/1111.png" alt="">
       <img class="h2 Y_img" src="@/assets/images/222.png" alt="">
@@ -281,8 +290,6 @@
         <p>握手结束，创建子节点成功!</p>
       </div>
     </div>
-    <!--test-->
-    <!--test2-->
   </div>
 
 </template>
@@ -292,7 +299,7 @@
 import '@/assets/outside2/js/eui'
 import '@/assets/outside2/js/ping'
 import '@/assets/outside2/js/iconfont'
-import { listType,getType,delType,updateType,addType,selectList } from "@/api/index";
+import { listType,getType,delType,updateType,addType,selectList,insertList,deleteList,updateList } from "@/api/index";
 export default {
   name: "Center",
   mounted() {
@@ -325,18 +332,26 @@ export default {
       tableIndex: 0,
       deleteUrl: null,
       deleteId: null,
-      formData: {
-        type:"select",
-        tname:"xs_slave_extension_copy1",
-        page:1,
-        rows:10,
-      },
       // 握手动画
       handVisiable: false,
       // 握手进行中
       jinx: false,
       // 握手成功
-      jies: false
+      jies: false,
+      /////////////////// 简单查询
+      type: "select",						//类型
+      tname: "xs_slave_extension_copy1",	//表名
+      page: 1,								//第几页
+      rows: 10,								//一页所展示的条数
+      //查询条件，可以不写
+      conditions: {
+        extension_id: "test4"
+      },
+      values: {
+        extension_version: "1.0.1.1",
+        extension_id: "test4",
+        slave_id: "test1"
+      }
     };
   },
   methods: {
@@ -355,7 +370,6 @@ export default {
       this.drawer = false;
     },
     showList(index) {
-      this.drawerSize = "25%";
       this.drawerTitle = "查看节点";
       this.tableIndex = index;
       this.drawerList = true;
@@ -374,8 +388,52 @@ export default {
         }
       );
     },
-    getData() {
-      selectList(this.formData).then(response => {
+    selectData() {
+      this.type = "select"
+      var data = {
+        type: this.type,
+        tname: this.tname,
+        page: this.page,
+        rows: this.rows
+      };
+      selectList(data).then(response => {
+        console.log(response, 88777);
+      });
+    },
+    insertData() {
+      this.type = "insert"
+      var data = {
+        type: this.type,
+        tname: this.tname,
+        values: this.values
+      };
+      insertList(data).then(response => {
+        console.log(response, 88777);
+      });
+    },
+    deleteData() {
+      this.type = "delete";
+      var data = {
+        type: this.type,
+        tname: this.tname,
+        conditions: this.conditions
+      };
+      deleteList(data).then(response => {
+        console.log(response, 88777);
+      });
+    },
+    updateData() {
+      this.type = "update";
+      var data = {
+        type: this.type,
+        tname: this.tname,
+        values: this.values,
+        //fixme 已写死
+        conditions: {
+          extension_id: "test3"
+        },
+      };
+      updateList(data).then(response => {
         console.log(response, 88777);
       });
     },
@@ -385,7 +443,8 @@ export default {
           if (this.id !== undefined) {  // 修改
             var data = {
               id:this.id,
-              url:this.form.url
+              //fixme 保证ip前后没有空格
+              url:this.form.url.trim()
             }
             updateType(data).then(response => {
               if(response.data.res === 0){
@@ -406,6 +465,8 @@ export default {
               if(response.data.res === 0){
                 this.handVisiable = true;
                 this.jinx = true;
+                //防止显示两处文字
+                this.jies = false;
                 setTimeout(() => {
                   this.jinx = false;
                   this.jies = true;
@@ -442,7 +503,6 @@ export default {
     //查看详情
     handleDetail(item) {
       this.drawerDetail = true;
-      this.drawerSize = "40%";
       this.drawerTitle = '查看 '+item.url+' 的详情'
       console.log(item);
       var data = {
@@ -456,7 +516,6 @@ export default {
     handleDelete(item) {
       this.drawerTitle = '删除节点'
       this.drawerDelete = true;
-      this.drawerSize = '20%';
       this.deleteId = item.uuid;
       this.deleteUrl = item.url;
     },
@@ -480,20 +539,19 @@ export default {
     addRow(){
       this.drawerTitle = '新增节点';
       this.drawer = true;
-      this.drawerSize = '20%';
     },
     handleChange(item){
       this.drawer = true;
-      this.drawerSize = '20%';
       this.drawerTitle = '原url为：'+item.url
       this.id = item.uuid
     },
-
-
   },
   created() {
     this.getList();
-    this.getData();
+    // this.selectData();
+    // this.insertData();
+    // this.deleteData();
+    // this.updateData();
   },
   computed: {
     //计算属性计算出当前的order值
@@ -510,13 +568,15 @@ export default {
 <style scoped src="@/assets/outside2/css/indexcontent.css"></style>
 <style scoped src="@/assets/css/style.css"></style>
 <style scoped>
+.Y_container {
+  zoom: 1;background: #162878\0;background-image: linear-gradient(180deg, #193b8f 0%, #110450 100%);
+}
 .Y-center {
   position: relative;
   font-size: 16px;
-  zoom: 1;background: #162878\0;background-image: linear-gradient(180deg, #193b8f 0%, #110450 100%);
 }
 .Y-center .warp {
-  transform: scale(0.85);
+  //transform: scale(0.85);
 }
 
 .node-container {
@@ -568,6 +628,7 @@ img.Y_img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 22vw;
 }
 img.h1 {
   z-index: 100;
@@ -688,7 +749,7 @@ img.h2 {
   border: #00CBFF 1px solid;
 }
 .el-drawer {
-  background: url('../assets/images/kaibg.png') no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/images/kaibg.png) no-repeat;
   background-size: cover;
 }
 .demo-drawer__content {

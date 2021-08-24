@@ -9,18 +9,21 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
+  }, {
     path: '/center',
     component: (resolve) => require(['@/views/Center'], resolve),
     name: 'Center',
     meta: { title: '个人中心', icon: 'user' }
-  },
-  {
+  }, {
     path: '/test',
     component: (resolve) => require(['@/views/test'], resolve),
     name: 'Test',
-    meta: { title: '个人中心', icon: 'user' }
+    meta: { title: '测试', icon: 'user' }
+  }, {
+    path: '/1',
+    component: (resolve) => require(['@/views/showData'], resolve),
+    name: 'showData',
+    meta: {title: '展示数据', icon: 'user'}
   },
 
 ]
