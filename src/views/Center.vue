@@ -373,6 +373,7 @@ export default {
       this.drawerTitle = "查看节点";
       this.tableIndex = index;
       this.drawerList = true;
+      // console.log()
     },
     cancelForm() {
       this.id = undefined;
