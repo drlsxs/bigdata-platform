@@ -1,9 +1,9 @@
 <template>
   <div class="Y_container">
     <div data-v-fae5bece=""  class="headlines childE" style="transform: scale(0.594271); z-index: 1999">
-      <h1 data-v-fae5bece="">
-        <a href="/" style="color: #09C8E7;font-size: 50px">星杓大数据平台</a>
-      </h1>
+      <h3 data-v-fae5bece="">
+        <a href="/" style="color: #09C8E7">星杓大数据平台</a>
+      </h3>
     </div>
     <div class="Y-center">
       <div class="warp" ref="warp">
@@ -68,7 +68,67 @@
         <div class="inner-ctr">
           <!--todo 先改成3x3后面一圈4x4-->
           <el-row style="height: 100%; position: relative">
-            <el-col :span="8" v-for="(item,index) in tableData" :key="item.uuid">
+            <el-col :span="8" v-for="(item,index) in mokeData" :key="item.uuid" >
+              <!--节点容器开始-->
+              <div class="node-container" >
+                <div class="data-origin" :class="'origin' + index" ref="origin" @click="showList(index)" :id="'node' + index">
+                  <div class="do-cont-shang">
+                    <img src="@/assets/outside2/images/sjy_di02.png">
+                    <img src="@/assets/outside2/images/sjy_di03.png">
+                    <img src="@/assets/outside2/images/sjy_di02.png">
+                    <img src="@/assets/outside2/images/sjy_di03.png">
+                  </div>
+                  <div class="do-cont"></div>
+                  <div class="do-top">
+                    <div class="xz-light"></div>
+                  </div>
+                  <div class="do-anim" :class="'doAnim'+item.status">
+                    <span class="an-guang"></span>
+                    <span class="an-guang-sp">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+            </span>
+                    <span class="an-jiaz"></span>
+                    <span class="an-img">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+            </span>
+                  </div>
+                  <!--节点修改和节点删除开始-->
+                  <div class="id-ambox ib-2 Y-ib-2" @click.stop="handleDelete(item)">
+                    <span class="ab-guang"></span>
+                    <span class="ab-xg"></span>
+                    <span class="ab-img"></span>
+                    <span class="ab-txt"></span>
+                  </div>
+                  <div class="id-ambox ib-4 Y-ib-4" @click.stop="handleChange(item)">
+                    <span class="ab-guang"></span>
+                    <span class="ab-xg"></span>
+                    <span class="ab-img"></span>
+                    <span class="ab-txt"></span>
+                  </div>
+                  <div class="id-ambox ib-1 Y-ib-1" @click.stop="handleDetail(item)">
+                    <span data-v-628cac8f="" class="ab-guang"></span>
+                    <span data-v-628cac8f="" class="ab-xg"></span>
+                    <span data-v-628cac8f="" class="ab-img"></span>
+                    <span data-v-628cac8f="" class="ab-txt"></span>
+                  </div>
+                  <!--节点修改和节点删除结束-->
+                </div>
+              </div>
+              <!--节点容器结束-->
+            </el-col>
+          </el-row>
+        </div>
+        <div class="inner-ctr2">
+          <!--todo 先改成3x3后面一圈4x4-->
+          <el-row style="height: 100%; position: relative">
+            <el-col :span="6" v-for="(item,index) in mokeData2" :key="item.uuid" >
               <!--节点容器开始-->
               <div class="node-container" >
                 <div class="data-origin" :class="'origin' + index" ref="origin" @click="showList(index)" :id="'node' + index">
@@ -126,19 +186,44 @@
           </el-row>
         </div>
         <!--子节点 结束-->
+        <!--主节点连接子节点的svg线条 开始-->
+        <!--<div class="Y_shape" >-->
+        <!--  <svg xmlns="http://www.w3.org/2000/svg" width="" height="">-->
+        <!--    <rect :style="{-->
+        <!--    width:400 +'px',-->
+        <!--    height:5,-->
+        <!--    x: globalXOffset + 209,-->
+        <!--    y: globalYOffset + 8,-->
+        <!--    fill: orange-->
+        <!--  }"/>-->
+        <!--    <rect :style="{-->
+        <!--    width:5 +'px',-->
+        <!--    height:10 +'vh',-->
+        <!--    y: 219,-->
+        <!--    x: globalXOffset + 8,-->
+        <!--    fill: orange-->
+        <!--  }"/>-->
+        <!--    <path-->
+        <!--      fill="none"-->
+        <!--      stroke-width="5"-->
+        <!--      :stroke="orange"-->
+        <!--      d="M19.5,219.5 v-0 a200,200 0 0 1 199.5,-199.5 h0"-->
+        <!--    />-->
+        <!--  </svg>-->
+        <!--</div>-->
+        <!--主节点连接子节点的svg线条 结束-->
       </div>
       <!--新增抽屉-->
       <el-drawer
         :title="drawerTitle"
         :before-close="handleClose"
         :visible.sync="drawer"
-        direction="rtl"
+        direction="ltr"
         custom-class="demo-drawer"
         ref="drawer"
         :size="drawerSize"
         class="addDrawer"
         :append-to-body="true"
-        @close="handDrawerClose"
       >
         <!--<div slot="title" class="Y_title">-->
         <!--  <img src="../assets/images/headerpg.png" alt="">-->
@@ -164,26 +249,61 @@
         :title="drawerTitle"
         :before-close="handleCloseList"
         :visible.sync="drawerList"
-        direction="rtl"
+        direction="ltr"
         custom-class="demo-drawer"
         ref="drawer"
         :size="drawerSize"
         :append-to-body="true"
-        v-if="tableData.length > 0"
-        @close="handDrawerClose"
       >
         <div class="demo-drawer__content">
           <div class="Y_wrap">
             <div class="flex-inner">
-              <ul>
-                <li> <span><i class="iconfont icon-URLguanli"></i>url</span> &nbsp;{{tableData[tableIndex].url}}</li>
-                <li> <span class="x1"><i class="iconfont icon-xitong"></i>操作系统</span> &nbsp;{{tableData[tableIndex].pg_version}}</li>
-                <li> <span><i class="iconfont icon-chuangjianshijian"></i>创建时间</span> &nbsp;{{tableData[tableIndex].create_time}}</li>
-                <li> <span><i class="iconfont icon-gengxin"></i>更新时间</span> &nbsp;{{tableData[tableIndex].update_time}}</li>
-                <li> <span><i class="iconfont icon-zhuangtai"></i>状态</span> &nbsp;{{tableData[tableIndex].status}}</li>
-              </ul>
+              <!--<ul>-->
+              <!--  <li> <span>url</span> &nbsp;{{tableData[tableIndex].url}}</li>-->
+              <!--  <li> <span class="x1">操作系统</span> &nbsp;{{tableData[tableIndex].pg_version}}</li>-->
+              <!--  <li> <span>创建时间</span> &nbsp;{{tableData[tableIndex].create_time}}</li>-->
+              <!--  <li> <span>更新时间</span> &nbsp;{{tableData[tableIndex].update_time}}</li>-->
+              <!--  <li> <span>状态</span> &nbsp;{{tableData[tableIndex].status}}</li>-->
+              <!--</ul>-->
             </div>
           </div>
+
+          <!--<el-table :data="[tableData[tableIndex]]" stripe style="width: 90%" v-loading="loading">-->
+          <!--  <el-table-column-->
+          <!--    fixed prop="url"-->
+          <!--    label="url"-->
+          <!--    width="185">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="pg_version"-->
+          <!--    label="数据库版本"-->
+          <!--    width="160">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="os"-->
+          <!--    label="操作系统"-->
+          <!--    width="160">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="create_time"-->
+          <!--    label="创建时间"-->
+          <!--    width="140">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="update_time"-->
+          <!--    label="更新时间"-->
+          <!--    width="140">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    prop="status"-->
+          <!--    label="状态"-->
+          <!--    width="120" :formatter="statusFormat">-->
+          <!--  </el-table-column>-->
+          <!--  <el-table-column-->
+          <!--    fixed="right"-->
+          <!--    label="操作">-->
+          <!--  </el-table-column>-->
+          <!--</el-table>-->
         </div>
       </el-drawer>
       <!--详情抽屉-->
@@ -191,12 +311,11 @@
         :title="drawerTitle"
         :before-close="handleCloseDetail"
         :visible.sync="drawerDetail"
-        direction="rtl"
+        direction="ltr"
         custom-class="demo-drawer"
         ref="drawer"
         :size="drawerSize"
         :append-to-body="true"
-        @close="handDrawerClose"
       >
         <div class="demo-drawer__content">
           <el-table :data="gridData">
@@ -211,13 +330,12 @@
         :title="drawerTitle"
         :before-close="handleCloseDelete"
         :visible.sync="drawerDelete"
-        direction="rtl"
+        direction="ltr"
         custom-class="demo-drawer"
         ref="drawer"
         :size="drawerSize"
         class="delDrawer"
         :append-to-body="true"
-        @close="handDrawerClose"
       >
         <div class="demo-drawer__content">
           <div class="el-message-box">
@@ -261,14 +379,12 @@
         <p>握手结束，创建子节点成功!</p>
       </div>
     </div>
-    <!--<div class="Y_img">-->
-    <!--  <img src="../assets/images/light.png" alt="">-->
-    <!--</div>-->
   </div>
 
 </template>
 
 <script>
+// import '@/assets/outside2/js/require'
 import '@/assets/outside2/js/eui'
 import '@/assets/outside2/js/ping'
 import '@/assets/outside2/js/iconfont'
@@ -279,14 +395,15 @@ export default {
     // function setJspWaitingDomMsg(msg){var _d = document.getElementById("com.esen.irpt.web.waitingdom.txt");if (_d) _d.innerHTML = msg;}
     function hideJspWaitingDomMsg(){var _d = document.getElementById("com.esen.irpt.web.waitingdom");if (_d) _d.parentNode.removeChild(_d);if(window.detachEvent)window.detachEvent("onload",hideJspWaitingDomMsg);else if(window.removeEventListener)window.removeEventListener("load",hideJspWaitingDomMsg,false);}
     if(window.attachEvent)window.attachEvent("onload",hideJspWaitingDomMsg);else if(window.addEventListener)window.addEventListener("load",hideJspWaitingDomMsg,false);
+    this.dispatchLine();
     window.addEventListener("resize", () => {
       const lines = document.querySelectorAll(".line");
       lines.forEach(item => {
         item.remove();
       });
+
       this.dispatchLine();
     });
-    // 算出子节点的位置
     const pl8 = document.querySelectorAll(".el-col-8");
     console.log(pl8);
     pl8.forEach((item, index) => {
@@ -295,10 +412,10 @@ export default {
 
       }
     });
+
   },
   updated() {
-    // this.dispatchLine();
-    this.resetLine();
+
   },
   data() {
     return {
@@ -307,6 +424,30 @@ export default {
       id: undefined,
       loading: false,
       tableData: [],
+      mokeData: [
+        {uuid:1},
+        {uuid:2},
+        {uuid:3},
+        {uuid:4},
+        {uuid:5},
+        {uuid:6},
+        {uuid:7},
+        {uuid:8},
+      ],
+      mokeData2: [
+        {uuid:1},
+        {uuid:2},
+        {uuid:3},
+        {uuid:4},
+        {uuid:5},
+        {uuid:6},
+        {uuid:7},
+        {uuid:8},
+        {uuid:9},
+        {uuid:10},
+        {uuid:11},
+        {uuid:12},
+      ],
       gridData: [],
       form: {},
       statusOptions: [
@@ -331,27 +472,22 @@ export default {
       jinx: false,
       // 握手成功
       jies: false,
+      // orange : "#EC9503",
+      // globalXOffset : 9.5,
+      // globalYOffset: 10
     };
   },
   methods: {
-    handDrawerClose() {
-      this.resetLine();
-    },
-    // 重置线条，防止很多光线的bug
-    resetLine() {
-      const lines = document.querySelectorAll(".line");
-      lines.forEach(item => {
-        item.remove();
-      });
-      this.dispatchLine();
+    handleLight() {
+      console.log("点击子节点");
     },
     // 分发线条
     dispatchLine() {
+      console.log("dispatch");
       const node = document.querySelectorAll(`.data-origin`);
       let centerele = document.getElementById("center");
       let warp = document.querySelector(".warp");
       node.forEach(item => {
-        // console.log(item, "分发");
         warp.append(this.getLengthAndAngle(centerele, item));
       });
     },
@@ -362,7 +498,7 @@ export default {
       var x_start =  Math.ceil(startObj.getBoundingClientRect().left + startObj.getBoundingClientRect().width/2);
 
       //终点元素中心坐标
-      var y_end =  Math.ceil(endObj.getBoundingClientRect().top + endObj.getBoundingClientRect().height - 50);
+      var y_end =  Math.ceil(endObj.getBoundingClientRect().top + endObj.getBoundingClientRect().height/2);
       var x_end =  Math.ceil(endObj.getBoundingClientRect().left + endObj.getBoundingClientRect().width/2);
 
       //用勾股定律计算出斜边长度及其夹角（即连线的旋转角度）
@@ -402,11 +538,9 @@ export default {
     handleCloseList() {
       this.drawerList = false;
     },
-    //关闭删除抽屉
     handleCloseDelete() {
       this.drawerDelete = false;
     },
-    // 关闭新增抽屉
     handleClose() {
       this.drawer = false;
     },
@@ -414,7 +548,6 @@ export default {
       this.drawerTitle = "查看节点";
       this.tableIndex = index;
       this.drawerList = true;
-      console.log("点击子节点")
     },
     cancelForm() {
       this.id = undefined;
@@ -425,8 +558,8 @@ export default {
     getList() {
       this.loading = true;
       listType().then(response => {
-        this.tableData = response.data;
-        this.loading = false;
+          this.tableData = response.data;
+          this.loading = false;
         }
       );
     },
@@ -543,6 +676,7 @@ export default {
   },
   created() {
     this.getList();
+    this.dispatchLine();
   },
   computed: {
     //计算属性计算出当前的order值
@@ -558,7 +692,6 @@ export default {
 <style scoped src="@/assets/outside2/css/esenbase.css"></style>
 <style scoped src="@/assets/outside2/css/indexcontent.css"></style>
 <style scoped src="@/assets/css/style.css"></style>
-
 <style scoped>
 /*控制节点的颜色*/
 
@@ -596,7 +729,8 @@ export default {
   font-size: 16px;
 }
 .Y-center .warp {
-  //transform: scale(0.85);
+//transform: scale(0.85);
+  height: 1800px;
 }
 
 .node-container {
@@ -613,9 +747,8 @@ export default {
   width: 50%;
 }
 .inner-ctr {
-  z-index: 50;
-  width: 1100px;
-  height: 90vh;
+  width: 1000px;
+  height: 1000px;
   /* 绝对定位 */
   position: absolute;
   /* 上方和左方为50% */
@@ -644,7 +777,6 @@ export default {
   left: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 10000;
-  font-size: 30px;
 }
 
 .Y_mask .Y_woText {
@@ -740,10 +872,11 @@ img.h2 {
 }
 
 .warp >>>.line {
-  height: 6px;
+  height: 3px;
   z-index: 10;
   position: absolute;
   background: yellow;
+  border-radius: 30%;
 }
 
 .warp >>>.line .Y_light {
@@ -752,7 +885,7 @@ img.h2 {
   position: absolute;
   left: 50%;
   top: -48px;
-  animation: imgMove 2s infinite;
+  animation: imgMove 3s infinite;
 }
 
 @keyframes imgMove {
@@ -778,10 +911,13 @@ img.h2 {
 </style>
 
 <style>
+.el-popover.myPopover {
+  background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+  border: #00CBFF 1px solid;
+}
 .el-drawer {
-  //position: relative;
+  position: relative;
   background: transparent;
-  font-size: 16px;
 
 }
 
@@ -810,20 +946,6 @@ img.h2 {
 .el-form-item__label {
   color: #fff !important;
 }
-
-.demo-drawer__footer .el-button:nth-child(2) {
-  background-color: #00A0CC;
-
-}
-.el-form-item {
-  margin-bottom: 20px !important;
-}
-.el-drawer__header{
-  background: url("../assets/images/headerpg.png") no-repeat 18px -3px;
-  background-size: 94% 116%;
-  padding: 20px;
-}
-
 .demo-drawer__content {
   display: flex;
   flex-direction: column;
@@ -833,11 +955,7 @@ img.h2 {
   border: 2px solid #016ae0;
   border-radius: 10px;
   overflow: hidden;
-  font-size: 16px;
 
-}
-.demo-drawer__content .el-table {
-  font-size: 16px;
 }
 .addDrawer .demo-drawer__content,.delDrawer .demo-drawer__content {
   border: none;
@@ -865,7 +983,6 @@ img.h2 {
   flex: 1;
 }
 
-/*fixme 子节点定位样式*/
 .el-col-8 {
   position: relative;
   height: calc(1000px / 3);
@@ -935,6 +1052,9 @@ img.h2 {
   left: 0;
 }
 
+.el-loading-mask {
+  background-color: rgba(0,0,0,.5) !important;
+}
 .demo-drawer__content {
   align-items: center;
 }
@@ -960,7 +1080,7 @@ img.h2 {
   overflow: auto;
 }
 
-/*el-table*/
+/*common*/
 .el-table,
 .el-table thead {
   color: #23f3ff;
@@ -991,7 +1111,7 @@ th {
 }
 
 
-/*el-message*/
+/*/el-message/*/
 .el-message-box {
   color: #fff;
   background-color: #162374;
@@ -1025,5 +1145,16 @@ th {
 .el-message-box .el-message-box__btns button:nth-child(2) {
   background-color: #00A0CC;
 }
+.demo-drawer__footer .el-button:nth-child(2) {
+  background-color: #00A0CC;
 
+}
+.el-form-item {
+  margin-bottom: 20px !important;
+}
+.el-drawer__header{
+  background: url("../assets/images/headerpg.png") no-repeat 18px -3px;
+  background-size: 94% 116%;
+  padding: 20px;
+}
 </style>

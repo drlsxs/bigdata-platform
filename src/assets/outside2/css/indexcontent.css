@@ -47,7 +47,7 @@ body {
     background-image: linear-gradient(180deg, #193b8f 0%, #110450 100%);
 }
 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 1900px) {
     .Y-center {
       transform: scale(1, 1);
     }
@@ -55,19 +55,19 @@ body {
 
 @media only screen and (max-width: 1680px) {
     .Y-center {
-        transform: scale(0.9, 0.9);
+        transform: scale(0.8, 0.8);
     }
 }
 
 @media only screen and (max-width: 1440px) {
     .Y-center {
-        transform: scale(0.8, 0.8);
+        transform: scale(0.7, 0.7);
     }
 }
 
 @media only screen and (max-width: 1366px) {
     .Y-center {
-        transform: scale(0.75, 0.75);
+        transform: scale(0.65, 0.65);
     }
 }
 

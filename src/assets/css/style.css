@@ -37,10 +37,17 @@ body {
 
 .Y_wrap ul li span {
   color: #a1d3ff;
+  width: 85px;
+  text-align: right;
+  margin-right: 15px;
+
+}
+.Y_wrap ul li span i {
+  margin-right: 5px;
 
 }
 .Y_wrap ul li span.x1 {
-  min-width: 80px;
+
 }
 
 ul {

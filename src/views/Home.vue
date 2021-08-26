@@ -274,7 +274,7 @@ export default {
         path: '/center'
       });
     }
-  }
+  },
 }
 </script>
 

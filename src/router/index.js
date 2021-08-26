@@ -24,6 +24,11 @@ const routes = [
     component: (resolve) => require(['@/views/showData'], resolve),
     name: 'showData',
     meta: {title: '展示数据', icon: 'user'}
+  },{
+    path: '/2',
+    component: (resolve) => require(['@/views/mock'], resolve),
+    name: 'moni',
+    meta: {title: '模拟', icon: 'user'}
   },
 
 ]

@@ -10,6 +10,7 @@ import "./utils/flexible";
 import jquery from 'jquery';
 window.jquery = window.$ = jquery
 import {resetForm} from "@/utils/index"
+import "@/assets/css/common.css"
 
 
 Vue.prototype.resetForm = resetForm

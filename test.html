@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item{
+      height:100px;
+      width:200px;
+      position: absolute;
+      z-index: 2;
+    }
+    #one{
+      background:red;
+      top:200px;
+      left:400px;
+    }
+    #two{
+      background:blue;
+      top:100px;
+      left:40px;
+    }
+
+    #three{
+      background:yellow;
+      top:400px;
+      left:10px;
+    }
+    .line{
+      position:absolute;
+      background:green;
+      height:1px;
+      z-index: 1;/*这里设置大于2，即可看到真正连线的其实是两个元素的中心坐标*/
+    }
+  </style>
+</head>
+<body>
+<div id="one" class="item"></div>
+<div id="two" class="item"></div>
+<div id="three" class="item"></div>
+</body>
+<script src="jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("body").append(drawLine($("#one"),$("#two")))
+    $("body").append(drawLine($("#three"),$("#two")))
+    $("body").append(drawLine($("#one"),$("#three")))
+  })
+
+  /**
+   * 实现两个元素中心点的连线
+   * @author 渀波儿灞 2021-02-20
+   * @param  {Object} startObj  jquery对象，起点元素
+   * @param  {Object} endObj    jquery对象，终点元素
+   * @return {String}           返回连线的dom
+   */
+  function drawLine(startObj, endObj) {
+    //起点元素中心坐标
+    var y_start =  Number(startObj.css("top").replace("px","")) + startObj.height()/2;
+    var x_start =  Number(startObj.css("left").replace("px","")) + startObj.width()/2;
+
+    //终点元素中心坐标
+    var y_end =  Number(endObj.css("top").replace("px","")) + endObj.height()/2;
+    var x_end =  Number(endObj.css("left").replace("px",""))+ endObj.width()/2;;
+
+    //用勾股定律计算出斜边长度及其夹角（即连线的旋转角度）
+    var lx = x_end - x_start;
+    var ly = y_end - y_start;
+    //计算连线长度
+    var length = Math.sqrt(lx * lx + ly * ly);
+    //弧度值转换为角度值
+    var c = 360 * Math.atan2(ly, lx) / (2 * Math.PI);
+
+    //连线中心坐标
+    var midX=(x_end+x_start)/2;
+    var midY=(y_end+y_start)/2
+    var deg = c <= -90 ? (360 + c) : c;  //负角转换为正角
+
+    return `<div class='line'
+                    style='top:${midY}px;left:${midX-length/2}px;width:${length}px;transform:rotate(${deg}deg);'>
+                </div>`
+  }
+</script>
+
+<script>
+  function drawLine(startObj, endObj) {
+    //起点元素中心坐标
+    var y_start =  Number(startObj.getBoundingClientRect().top + startObj.getBoundingClientRect().height/2);
+    var x_start =  Number(startObj.getBoundingClientRect().left + startObj.getBoundingClientRect().width/2);
+
+    //终点元素中心坐标
+    var y_end =  Number(endObj.getBoundingClientRect().top + endObj.getBoundingClientRect().height/2);
+    var x_end =  Number(endObj.getBoundingClientRect().left + endObj.getBoundingClientRect().width/2);
+
+    //用勾股定律计算出斜边长度及其夹角（即连线的旋转角度）
+    var lx = x_end - x_start;
+    var ly = y_end - y_start;
+    //计算连线长度
+    var length = Math.sqrt(lx * lx + ly * ly);
+    //弧度值转换为角度值
+    var c = 360 * Math.atan2(ly, lx) / (2 * Math.PI);
+
+    //连线中心坐标
+    var midX=(x_end+x_start)/2;
+    var midY=(y_end+y_start)/2
+    var deg = c <= -90 ? (360 + c) : c;  //负角转换为正角
+    const returmDom = document.createElement("div");
+    returmDom.className = "line";
+    returmDom.style.top = `${midY}px`;
+    returmDom.style.height = '1px';
+    returmDom.style.width = `${length}px`;
+    returmDom.style.background = "green";
+    returmDom.style.left = `${midX - length / 2}px`;
+    returmDom.style.transform = `rotate(${deg}deg)`;
+    return returmDom;
+  }
+</script>
+
+
+<!--col6-->
+//.el-col-6:nth-child(5) {
+//  position: absolute;
+//  top: 25%;
+//  right: 0;
+//  transform: translateY(-50%);
+//
+//}
+//
+//.el-col-6:nth-child(6) {
+//  position: absolute;
+//  top: 50%;
+//  right: 0;
+//  transform: translateY(-50%);
+//
+//
+//}
+//
+//.el-col-6:nth-child(7) {
+//  position: absolute;
+//  top: 75%;
+//  right: 0;
+//  transform: translateY(-50%);
+//
+//
+//}
+<el-col :span="8" v-for="(item,index) in tableData" :key="item.uuid">
+  <!--节点容器开始-->
+  <div class="node-container" >
+    <div class="data-origin" :class="'origin' + index" ref="origin" @click="showList(index)" :id="'node' + index">
+      <div class="do-cont-shang">
+        <img src="@/assets/outside2/images/sjy_di02.png">
+        <img src="@/assets/outside2/images/sjy_di03.png">
+        <img src="@/assets/outside2/images/sjy_di02.png">
+        <img src="@/assets/outside2/images/sjy_di03.png">
+      </div>
+      <div class="do-cont"></div>
+      <div class="do-top">
+        <div class="xz-light"></div>
+      </div>
+      <div class="do-anim" :class="'doAnim'+item.status">
+        <span class="an-guang"></span>
+        <span class="an-guang-sp">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+                <img src="@/assets/outside2/images/sjy_top03.png">
+            </span>
+        <span class="an-jiaz"></span>
+        <span class="an-img">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+                <img src="@/assets/outside2/images/sjy_top05.png">
+            </span>
+      </div>
+      <!--节点修改和节点删除开始-->
+      <div class="id-ambox ib-2 Y-ib-2" @click.stop="handleDelete(item)">
+        <span class="ab-guang"></span>
+        <span class="ab-xg"></span>
+        <span class="ab-img"></span>
+        <span class="ab-txt"></span>
+      </div>
+      <div class="id-ambox ib-4 Y-ib-4" @click.stop="handleChange(item)">
+        <span class="ab-guang"></span>
+        <span class="ab-xg"></span>
+        <span class="ab-img"></span>
+        <span class="ab-txt"></span>
+      </div>
+      <div class="id-ambox ib-1 Y-ib-1" @click.stop="handleDetail(item)">
+        <span data-v-628cac8f="" class="ab-guang"></span>
+        <span data-v-628cac8f="" class="ab-xg"></span>
+        <span data-v-628cac8f="" class="ab-img"></span>
+        <span data-v-628cac8f="" class="ab-txt"></span>
+      </div>
+      <!--节点修改和节点删除结束-->
+    </div>
+  </div>
+  <!--节点容器结束-->
+</el-col>
+</html>

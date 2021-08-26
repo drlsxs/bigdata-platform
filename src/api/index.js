@@ -87,3 +87,11 @@ export function updateList(data) {
     data: data,
   })
 }
+
+export function getAllList(data) {
+  return axios({
+    url: 'http://192.168.0.122:8080/query',
+    method: 'post',
+    data: data,
+  })
+}
