@@ -261,9 +261,9 @@
         <p>握手结束，创建子节点成功!</p>
       </div>
     </div>
-    <!--<div class="Y_img">-->
-    <!--  <img src="../assets/images/light.png" alt="">-->
-    <!--</div>-->
+    <div class="Y_img">
+      <img src="../assets/images/light.png" alt="">
+    </div>
   </div>
 
 </template>
